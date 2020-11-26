@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Legi-Info</string>
+    <string name="home">Accueil</string>
+    <string name="politicians">Politiques</string>
+    <string name="national_assembly">Assemblée Nationale</string>
+    <string name="gouvernment">Gouvernement</string>
+    <string name="parliamentarians">Les Députés</string>
+    <string name="groups">Les Groupes</string>
+    <string name="files">Les Dossiers</string>
+    <string name="search">Recherche</string>
+    <string name="back">Retour</string>
+    <string name="deputy_activity">Activité du Député</string>
+    <string name="contact">Contact</string>
+    <string name="information">Informations</string>
+    <string name="works">Travaux</string>
+    <string name="activity">Activité</string>
+    <string name="district">Circonscription</string>
+    <string name="department">Département</string>
+    <string name="job">Profession</string>
+    <string name="age">ans</string>
+    <string name="political_group">Groupe Politique</string>
+    <string name="other_mandates">Autres mandats</string>
+</resources>

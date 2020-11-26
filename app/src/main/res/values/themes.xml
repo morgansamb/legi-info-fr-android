@@ -1,0 +1,117 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LegiInfo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <!-- Full screen -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColor">@color/grey_normal</item>
+
+        <item name="fontFamily">@font/gilroy</item>
+        <item name="colorControlHighlight">#42DDDDDD</item>
+
+    </style>
+
+    <style name="H1Heading">
+        <item name="android:fontFamily">@font/gilroy_bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/grey_dark</item>
+    </style>
+
+    <style name="H2SubHeading">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/grey_dark</item>
+    </style>
+
+    <style name="H4Section">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/grey_dark</item>
+    </style>
+
+    <style name="H1NavBar">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/grey_dark</item>
+    </style>
+
+    <style name="P1Text">
+        <item name="android:fontFamily">@font/gilroy_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/grey_normal</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <style name="SText">
+        <item name="android:fontFamily">@font/gilroy_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/grey_normal</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <style name="RoundedButton">
+        <item name="cornerRadius">27dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/gilroy_bold</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">@color/colorPrimary</item>
+        <item name="android:minHeight">55dp</item>
+        <item name="android:minWidth">150dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MaterialCardView">
+        <item name="android:elevation">@dimen/cards_elevation</item>
+        <item name="cardElevation">@dimen/cards_elevation</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">25dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+    </style>
+
+    <style name="TextAppearanceBottomNavBarActive">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearanceBottomNavBarInactive">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Searchbox" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

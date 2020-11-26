@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Legi-Info</string>
+    <string name="home">Home</string>
+    <string name="politicians">Politicians</string>
+    <string name="national_assembly">National Assembly</string>
+    <string name="gouvernment">Gouvernement</string>
+    <string name="parliamentarians">Deputies</string>
+    <string name="groups">Groups</string>
+    <string name="files">Files</string>
+    <string name="search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back">Back</string>
+    <string name="deputy_activity">Activity of the Deputy</string>
+    <string name="contact">Contact</string>
+    <string name="information">Information</string>
+    <string name="works">Works</string>
+    <string name="activity">Activity</string>
+    <string name="district">District</string>
+    <string name="department">department</string>
+    <string name="job">Job</string>
+    <string name="age">y.o.</string>
+    <string name="political_group">Political Group</string>
+    <string name="other_mandates">Other Mandates</string>
+</resources>
