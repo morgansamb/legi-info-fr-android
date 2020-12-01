@@ -17,8 +17,7 @@ class DeputyListViewModel(
 ): ViewModel() {
 
     private val _state = MutableLiveData<ListState<DeputyEntity>>()
-    val state: LiveData<ListState<DeputyEntity>>
-        get() = _state
+    val state: LiveData<ListState<DeputyEntity>> = _state
 
     init {
         getCurrentDeputies()

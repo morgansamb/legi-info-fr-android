@@ -2,6 +2,7 @@ package com.example.data.repository.deputy
 
 import com.example.data.model.local.DeputyDetailEntity
 import com.example.data.model.local.DeputyEntity
+import com.example.data.model.local.DeputySynthesisEntity
 import com.example.data.model.mapper.toEntity
 import com.example.data.source.deputy.LocalDeputyDataSource
 import com.example.data.source.deputy.RemoteDeputyDataSource
@@ -24,5 +25,14 @@ class DeputyRepositoryImpl(
         localSource.insertDeputy(deputyEntity)
 
         return localSource.getDeputy(deputyEntity.id)
+    }
+
+    override suspend fun getSynthesisByDeputy(id: Int, force: Boolean): DeputySynthesisEntity {
+        if (force) {
+            val synthesis = remoteSource.getSynthesisAllTime().map { it.toEntity() }
+            localSource.insertAllSynthesis(synthesis)
+        }
+
+        return localSource.getSynthesisByDeputy(id)
     }
 }

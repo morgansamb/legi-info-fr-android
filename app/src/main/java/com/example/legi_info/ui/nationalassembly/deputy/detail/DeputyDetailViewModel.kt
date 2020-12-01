@@ -4,12 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.local.DeputyDetailEntity
+import com.example.domain.model.Deputy
 import com.example.domain.result.Result
 import com.example.domain.usecase.deputy.GetDeputyUseCase
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.launch
-import java.lang.IllegalStateException
 
 class DeputyDetailViewModel(
     private val getDeputyUseCase: GetDeputyUseCase
@@ -33,7 +32,7 @@ class DeputyDetailViewModel(
 }
 
 sealed class DeputyDetailState {
-    data class Success(val deputy: DeputyDetailEntity): DeputyDetailState()
+    data class Success(val deputy: Deputy): DeputyDetailState()
     data class Error(val error: String? = null): DeputyDetailState()
     object Loading: DeputyDetailState()
 }

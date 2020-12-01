@@ -72,6 +72,9 @@ dependencies {
     // ThreeTenABP
     implementation "com.jakewharton.threetenabp:threetenabp:$threeten"
 
+    // MPAndroidChart
+    implementation "com.github.PhilJay:MPAndroidChart:$mpAndroidChart"
+
     // Room
     implementation "androidx.room:room-ktx:$room"
     implementation project(path: ':domain')

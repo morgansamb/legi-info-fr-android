@@ -2,9 +2,11 @@ package com.example.data.model.mapper
 
 import com.example.data.model.local.DeputyDetailEntity
 import com.example.data.model.local.DeputyEntity
+import com.example.data.model.local.DeputySynthesisEntity
 import com.example.data.model.local.OrganizationEntity
 import com.example.data.model.remote.Deputy
 import com.example.data.model.remote.DeputyFull
+import com.example.data.model.remote.DeputySynthesis
 import com.example.data.model.remote.Organization
 
 fun Deputy.toEntity(): DeputyEntity = DeputyEntity(
@@ -33,6 +35,23 @@ fun DeputyFull.toEntity() = DeputyDetailEntity(
         orgDateMin = this.content.group.roleDateBeg,
         dateMandateMin = this.content.mandateBeg,
         otherMandates = this.content.otherMandates.map { it.mandate }
+)
+
+fun DeputySynthesis.toEntity() = DeputySynthesisEntity(
+        id = this.content.id,
+        weekAttendance = this.content.weekAttendance,
+        committeeAttendance = this.content.committeeAttendance,
+        committeeIntervention = this.content.committeeIntervention,
+        report = this.content.report,
+        amendmentAdopted = this.content.amendmentAdopted,
+        amendmentProposed = this.content.amendmentProposed,
+        amendmentSigned = this.content.amendmentSigned,
+        hemicycleShortIntervention = this.content.hemicycleShortIntervention,
+        hemicycleIntervention = this.content.hemicycleIntervention,
+        writtenProposal = this.content.writtenProposal,
+        signedProposal = this.content.signedProposal,
+        writtenQuestion = this.content.writtenQuestion,
+        oralQuestion = this.content.oralQuestion
 )
 
 fun Organization.toEntity() = OrganizationEntity(

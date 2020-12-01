@@ -5,26 +5,27 @@ import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.example.data.model.local.DeputyDetailEntity
-import com.example.data.model.remote.DeputyFull
+import com.example.domain.model.Deputy
 import com.example.legi_info.R
 import com.example.legi_info.databinding.FragmentDeputyInformationBinding
+import com.example.legi_info.extension.gone
 import com.example.legi_info.extension.yearDiff
+import com.example.legi_info.ui.nationalassembly.deputy.list.MandateAdapter
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.FormatStyle
 
 private const val ARG_DEPUTY = "deputy"
 
-class DeputyInformationFragment : Fragment(R.layout.fragment_deputy_information) {
+class DeputyInformationFragment private constructor(): Fragment(R.layout.fragment_deputy_information) {
 
     private val binding by viewBinding<FragmentDeputyInformationBinding>()
-    private lateinit var deputy: DeputyDetailEntity
+    private lateinit var deputy: Deputy
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val args = requireArguments()
-        deputy = args.getSerializable(ARG_DEPUTY) as DeputyDetailEntity
+        deputy = args.getSerializable(ARG_DEPUTY) as Deputy
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,11 +44,19 @@ class DeputyInformationFragment : Fragment(R.layout.fragment_deputy_information)
         binding.departmentName.text = deputy.districtName
         binding.groupName.text = deputy.organization
         binding.groupStatus.text = deputy.orgStatus.capitalize()
+
+        if (deputy.otherMandates.isNotEmpty()) {
+            val mandateAdapter = MandateAdapter(deputy.otherMandates)
+            binding.mandatesRecycler.adapter = mandateAdapter
+        } else {
+            binding.mandatesRecycler.gone()
+            binding.otherMandates.gone()
+        }
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(deputy: DeputyDetailEntity) =
+        fun newInstance(deputy: Deputy) =
             DeputyInformationFragment().apply {
                 arguments = bundleOf(
                     ARG_DEPUTY to deputy

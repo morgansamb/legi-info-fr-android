@@ -3,6 +3,8 @@ package com.example.legi_info
 import com.example.data.Network
 import com.example.data.api.NosDeputesService
 import com.example.data.db.AppDatabase
+import com.example.data.preference.PrefsStore
+import com.example.data.preference.SharedPrefsStorage
 import com.example.data.repository.deputy.DeputyRepository
 import com.example.data.repository.deputy.DeputyRepositoryImpl
 import com.example.data.repository.file.FileRepository
@@ -27,6 +29,7 @@ import com.example.legi_info.ui.nationalassembly.deputy.detail.DeputyDetailViewM
 import com.example.legi_info.ui.nationalassembly.deputy.list.DeputyListViewModel
 import com.example.legi_info.ui.nationalassembly.filelist.FileListViewModel
 import com.example.legi_info.ui.nationalassembly.organizationlist.OrganizationListViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -43,13 +46,17 @@ val appModule = module {
         Network("https://www.nosdeputes.fr/").createAPIService(NosDeputesService::class)
     }
 
+    /** Shared Prefs **/
+    single { SharedPrefsStorage(androidApplication()) as PrefsStore }
+
     /**
      * Data Sources
      */
     single { RemoteDeputyDataSourceImpl(get()) as RemoteDeputyDataSource }
     single { LocalDeputyDataSourceImpl(
         deputyDao = get<AppDatabase>().deputyDao(),
-        deputyDetailDao = get<AppDatabase>().deputyDetailDao()
+        deputyDetailDao = get<AppDatabase>().deputyDetailDao(),
+        deputySynthesisDao = get<AppDatabase>().deputySynthesisDao()
     ) as LocalDeputyDataSource }
     single { RemoteOrganizationDataSourceImpl(get()) as RemoteOrganizationDataSource }
     single { LocalOrganizationDataSourceImpl(get<AppDatabase>().organizationDao()) as LocalOrganizationDataSource }
@@ -93,7 +100,7 @@ val appModule = module {
      * Use Cases
      */
     single { GetDeputiesUseCase(get()) }
-    single { GetDeputyUseCase(get()) }
+    single { GetDeputyUseCase(get(), get()) }
     single { GetOrganizationsUseCase(get()) }
     single { GetMostRecentFileUseCase(get()) }
 }

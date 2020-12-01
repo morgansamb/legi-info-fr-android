@@ -202,7 +202,8 @@
                 android:id="@+id/mandatesRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="32dp"/>
+                tools:listitem="@layout/card_mandate"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

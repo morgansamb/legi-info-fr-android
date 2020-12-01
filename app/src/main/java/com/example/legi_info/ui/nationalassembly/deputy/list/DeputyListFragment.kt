@@ -11,11 +11,9 @@ import com.example.legi_info.extension.gone
 import com.example.legi_info.extension.hideKeyboard
 import com.example.legi_info.extension.visible
 import com.example.legi_info.ui.base.ListState
-import com.example.legi_info.ui.nationalassembly.hub.NAHubFragment
 import com.example.legi_info.ui.nationalassembly.hub.NAHubFragmentDirections
 import com.orhanobut.logger.Logger
 import org.koin.android.viewmodel.ext.android.viewModel
-
 
 
 class DeputyListFragment : Fragment(R.layout.fragment_search_recycler) {

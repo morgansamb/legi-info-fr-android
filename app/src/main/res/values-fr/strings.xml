@@ -21,4 +21,18 @@
     <string name="age">ans</string>
     <string name="political_group">Groupe Politique</string>
     <string name="other_mandates">Autres mandats</string>
+    <string name="attendance">Présence</string>
+    <string name="committee">Commission</string>
+    <string name="interventions">Interventions</string>
+    <string name="short_interventions">Interventions courtes</string>
+    <string name="proposed_amendments">Amendements proposés</string>
+    <string name="signed_amendments">Amendements signés</string>
+    <string name="adopted_amendments">Amendements adoptés</string>
+    <string name="reports">Rapports</string>
+    <string name="last_12_months">12 derniers mois</string>
+    <string name="proposals_written">Propositions écrites</string>
+    <string name="proposals_signed">Propositions signées</string>
+    <string name="questions_written">Questions écrites</string>
+    <string name="questions_oral">Questions orales</string>
+    <string name="weeks">semaines</string>
 </resources>

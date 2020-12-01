@@ -2,6 +2,7 @@ package com.example.data.api
 
 import com.example.data.model.remote.DeputyFull
 import com.example.data.model.remote.response.DeputyResponse
+import com.example.data.model.remote.response.DeputySynthesisResponse
 import com.example.data.model.remote.response.FileResponse
 import com.example.data.model.remote.response.OrganizationResponse
 import retrofit2.http.GET
@@ -22,4 +23,7 @@ interface NosDeputesService {
 
     @GET("15/dossiers/date/json")
     suspend fun getMostRecentFiles(): FileResponse
+
+    @GET("synthese/data/json")
+    suspend fun getDeputiesSynthesisAllTime(): DeputySynthesisResponse
 }

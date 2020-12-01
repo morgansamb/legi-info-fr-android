@@ -6,15 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.data.db.dao.DeputyDao
 import com.example.data.db.dao.DeputyDetailDao
+import com.example.data.db.dao.DeputySynthesisDao
 import com.example.data.db.dao.OrganizationDao
 import com.example.data.model.local.DeputyDetailEntity
 import com.example.data.model.local.DeputyEntity
+import com.example.data.model.local.DeputySynthesisEntity
 import com.example.data.model.local.OrganizationEntity
 
 @Database(entities = [
     DeputyEntity::class,
     OrganizationEntity::class,
-    DeputyDetailEntity::class
+    DeputyDetailEntity::class,
+    DeputySynthesisEntity::class
 ],
     version = 1,
     exportSchema = true
@@ -23,6 +26,7 @@ abstract class AppDatabase: RoomDatabase() {
 
     abstract fun deputyDao(): DeputyDao
     abstract fun deputyDetailDao(): DeputyDetailDao
+    abstract fun deputySynthesisDao(): DeputySynthesisDao
     abstract fun organizationDao(): OrganizationDao
 
     companion object {

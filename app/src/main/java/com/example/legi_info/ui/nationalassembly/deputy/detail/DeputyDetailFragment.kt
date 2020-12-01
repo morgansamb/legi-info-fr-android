@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import coil.load
-import com.example.data.model.local.DeputyDetailEntity
+import com.example.domain.model.Deputy
 import com.example.legi_info.R
 import com.example.legi_info.databinding.FragmentDeputyDetailBinding
 import com.example.legi_info.extension.gone
@@ -37,8 +37,7 @@ class DeputyDetailFragment : Fragment(R.layout.fragment_deputy_detail) {
             findNavController().popBackStack()
         }
 
-        binding.image
-            .load(
+        binding.image.load(
                 "https://www.nosdeputes.fr/depute/photo/${args.deputy.slug}/240"
             )
 
@@ -54,7 +53,7 @@ class DeputyDetailFragment : Fragment(R.layout.fragment_deputy_detail) {
         })
     }
 
-    private fun setupTabLayout(deputy: DeputyDetailEntity) {
+    private fun setupTabLayout(deputy: Deputy) {
         val detailDeputyAdapter = DetailDeputyAdapter(this, deputy)
         binding.pager.adapter = detailDeputyAdapter
         TabLayoutMediator(binding.tabs, binding.pager) { tab, position ->
@@ -75,14 +74,14 @@ class DeputyDetailFragment : Fragment(R.layout.fragment_deputy_detail) {
 
 class DetailDeputyAdapter(
     fragment: Fragment,
-    private val deputy: DeputyDetailEntity
+    private val deputy: Deputy
 ): FragmentStateAdapter(fragment) {
     override fun getItemCount() = 3
 
     override fun createFragment(position: Int): Fragment {
         return when(position) {
             0 -> DeputyInformationFragment.newInstance(deputy)
-            1 -> DeputyActivityFragment.newInstance()
+            1 -> DeputyActivityFragment.newInstance(deputy)
             2 -> DeputyWorkFragment.newInstance()
             else -> throw IllegalArgumentException("Illegal position")
         }

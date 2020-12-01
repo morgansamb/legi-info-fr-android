@@ -22,4 +22,18 @@
     <string name="age">y.o.</string>
     <string name="political_group">Political Group</string>
     <string name="other_mandates">Other Mandates</string>
+    <string name="attendance">Attendance</string>
+    <string name="committee">Committee</string>
+    <string name="interventions">Interventions</string>
+    <string name="short_interventions">Short interventions</string>
+    <string name="proposed_amendments">Proposed amendments</string>
+    <string name="signed_amendments">Signed amendments</string>
+    <string name="adopted_amendments">Adopted amendments</string>
+    <string name="reports">Reports</string>
+    <string name="last_12_months">Last 12 months</string>
+    <string name="proposals_written">Proposals written</string>
+    <string name="proposals_signed">Proposals signed</string>
+    <string name="questions_written">Questions written</string>
+    <string name="questions_oral">Oral questions</string>
+    <string name="weeks">weeks</string>
 </resources>
