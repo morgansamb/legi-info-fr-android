@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/deputy_detail"
+    app:startDestination="@id/deputyDetailFragment">
+
+    <fragment
+        android:id="@+id/deputyDetailFragment"
+        android:name="com.example.legi_info.ui.nationalassembly.deputy.detail.DeputyDetailFragment"
+        android:label="DeputyDetailFragment"
+        tools:layout="@layout/fragment_deputy_detail">
+        <argument
+            android:name="deputy"
+            app:argType="com.example.data.model.local.DeputyEntity" />
+    </fragment>
+</navigation>

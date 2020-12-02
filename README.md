@@ -14,6 +14,6 @@ The application uses the API made available in an OpenData way by nosDeputes.fr.
 
 ## Screenshots
 
-| Liste des députés       | Information d'un député | Activité d'un député
+| Deputies list      | Deputy Information | Deputy Activity
 | ------------- |:-------------:|:-------------:|
-| ![Liste des députés](assets/deputies_list.png)     | ![Information d'un député](assets/deputy_info.png) | ![Activity d'un député](assets/deputy_activity.png)
+| ![Deputies list](assets/deputies_list.png)     | ![Deputy Information](assets/deputy_info.png) | ![Deputy Activity](assets/deputy_activity.png)

@@ -38,7 +38,7 @@ class DeputyListFragment : Fragment(R.layout.fragment_search_recycler) {
         })
 
         adapter.setOnClickListener { deputy ->
-            val action = NAHubFragmentDirections.actionNaHubFragmentToDeputyDetailFragment(deputy)
+            val action = NAHubFragmentDirections.actionGlobalDeputyDetailActivity(deputy)
             findNavController().navigate(action)
         }
 

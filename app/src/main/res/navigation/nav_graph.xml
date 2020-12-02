@@ -14,18 +14,20 @@
     <fragment
         android:id="@+id/naHubFragment"
         android:name="com.example.legi_info.ui.nationalassembly.hub.NAHubFragment"
-        android:label="NAHubFragment" >
-        <action
-            android:id="@+id/action_naHubFragment_to_deputyDetailFragment"
-            app:destination="@id/deputyDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/deputyDetailFragment"
-        android:name="com.example.legi_info.ui.nationalassembly.deputy.detail.DeputyDetailFragment"
-        android:label="DeputyDetailFragment" >
+        android:label="NAHubFragment"
+        tools:layout="@layout/fragment_n_a_hub"/>
+
+    <activity
+        android:id="@+id/deputyDetailActivity"
+        android:name="com.example.legi_info.ui.nationalassembly.deputy.detail.DeputyDetailActivity"
+        android:label="DeputyDetailActivity">
         <argument
             android:name="deputy"
             app:argType="com.example.data.model.local.DeputyEntity" />
-    </fragment>
+    </activity>
+
+    <action
+        android:id="@+id/action_global_deputyDetailActivity"
+        app:destination="@id/deputyDetailActivity" />
 
 </navigation>

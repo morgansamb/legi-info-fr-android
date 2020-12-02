@@ -19,6 +19,7 @@ import com.example.legi_info.ui.nationalassembly.deputy.work.DeputyWorkFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
 
+
 class DeputyDetailFragment : Fragment(R.layout.fragment_deputy_detail) {
 
     private val binding by viewBinding<FragmentDeputyDetailBinding>()
@@ -34,7 +35,7 @@ class DeputyDetailFragment : Fragment(R.layout.fragment_deputy_detail) {
         binding.toolbarTitle.text = args.deputy.fullName
 
         binding.backIcon.setOnClickListener {
-            findNavController().popBackStack()
+            activity?.finish()
         }
 
         binding.image.load(
