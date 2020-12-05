@@ -22,4 +22,5 @@ interface LocalDeputyDataSource {
     suspend fun insertDeputy(deputy: DeputyDetailEntity)
     suspend fun insertAllSynthesis(synthesis: List<DeputySynthesisEntity>)
     suspend fun getSynthesisByDeputy(id: Int): DeputySynthesisEntity
+    suspend fun search(query: String): List<DeputyEntity>
 }

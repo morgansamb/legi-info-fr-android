@@ -3,6 +3,7 @@ package com.example.legi_info.ui.nationalassembly.deputy.list
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.legi_info.R
@@ -27,7 +28,7 @@ class DeputyListFragment : Fragment(R.layout.fragment_search_recycler) {
             when (state) {
                 is ListState.Success -> {
                     binding.progressBar.gone()
-                    adapter.addAll(state.data)
+                    adapter.replaceAll(state.data)
                 }
                 is ListState.Error -> {
                     binding.progressBar.gone()
@@ -48,6 +49,10 @@ class DeputyListFragment : Fragment(R.layout.fragment_search_recycler) {
                 binding.searchInput.hideKeyboard()
                 false
             }
+        }
+
+        binding.searchInput.doOnTextChanged { text, _, _, _ ->
+            deputyViewModel.search(text.toString())
         }
     }
 

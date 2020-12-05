@@ -51,4 +51,7 @@ class LocalDeputyDataSourceImpl(
 
     override suspend fun getSynthesisByDeputy(id: Int) =
         deputySynthesisDao.getSynthesisByDeputy(id)
+
+    override suspend fun search(query: String) =
+        deputyDao.search(query)
 }

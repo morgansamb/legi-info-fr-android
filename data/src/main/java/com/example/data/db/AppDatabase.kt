@@ -4,14 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.data.db.dao.DeputyDao
 import com.example.data.db.dao.DeputyDetailDao
 import com.example.data.db.dao.DeputySynthesisDao
 import com.example.data.db.dao.OrganizationDao
-import com.example.data.model.local.DeputyDetailEntity
-import com.example.data.model.local.DeputyEntity
-import com.example.data.model.local.DeputySynthesisEntity
-import com.example.data.model.local.OrganizationEntity
+import com.example.data.model.local.*
 
 @Database(entities = [
     DeputyEntity::class,
@@ -20,7 +18,7 @@ import com.example.data.model.local.OrganizationEntity
     DeputySynthesisEntity::class
 ],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 abstract class AppDatabase: RoomDatabase() {
 

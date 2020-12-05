@@ -30,7 +30,8 @@ class DeputyAdapter: RecyclerView.Adapter<DeputyAdapter.DeputyHolder>() {
 
     override fun getItemCount() = deputies.size
 
-    fun addAll(deputies: List<DeputyEntity>) {
+    fun replaceAll(deputies: List<DeputyEntity>) {
+        this.deputies.clear()
         this.deputies.addAll(deputies)
         notifyDataSetChanged()
     }

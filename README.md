@@ -7,9 +7,15 @@ The application uses the API made available in an OpenData way by nosDeputes.fr.
 
 ## Technical Stack
 * MVVM + Clean Architecture
+* Kotlin (Coroutines, Flow)
+* Android Jetpack
+    * Room
+    * Navigation Component
+    * LiveData
+    * ViewModel
+    * View Binding
 * Retrofit
 * Moshi
-* Room
 * Koin
 
 ## Screenshots

@@ -22,7 +22,7 @@ data class DeputyDetailEntity(
     val id: Int,
     val idAN: Int,
     val slug: String,
-    val job: String,
+    val job: String? = null,
     val name: String,
     val gender: String,
     val birthDate: String,

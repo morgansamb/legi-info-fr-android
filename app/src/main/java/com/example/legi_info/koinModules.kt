@@ -23,6 +23,7 @@ import com.example.data.source.organization.RemoteOrganizationDataSource
 import com.example.data.source.organization.RemoteOrganizationDataSourceImpl
 import com.example.domain.usecase.deputy.GetDeputiesUseCase
 import com.example.domain.usecase.deputy.GetDeputyUseCase
+import com.example.domain.usecase.deputy.SearchDeputyUseCase
 import com.example.domain.usecase.file.GetMostRecentFileUseCase
 import com.example.domain.usecase.organization.GetOrganizationsUseCase
 import com.example.legi_info.ui.nationalassembly.deputy.detail.DeputyDetailViewModel
@@ -79,7 +80,7 @@ val appModule = module {
 
     // Deputy ViewModel
     viewModel {
-        DeputyListViewModel(get())
+        DeputyListViewModel(get(), get())
     }
 
     viewModel {
@@ -101,6 +102,7 @@ val appModule = module {
      */
     single { GetDeputiesUseCase(get()) }
     single { GetDeputyUseCase(get(), get()) }
+    single { SearchDeputyUseCase(get()) }
     single { GetOrganizationsUseCase(get()) }
     single { GetMostRecentFileUseCase(get()) }
 }

@@ -8,4 +8,5 @@ interface DeputyRepository {
     suspend fun getDeputies(): List<DeputyEntity>
     suspend fun getDeputy(slug: String): DeputyDetailEntity
     suspend fun getSynthesisByDeputy(id: Int, force: Boolean = false): DeputySynthesisEntity
+    suspend fun searchAllDeputies(query: String): List<DeputyEntity>
 }

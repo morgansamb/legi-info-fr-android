@@ -19,4 +19,11 @@ interface DeputyDao {
 
     @Query("SELECT * FROM deputy WHERE id=:id")
     suspend fun getDeputy(id: Int): DeputyEntity
+
+    @Query("""
+        SELECT *
+        FROM deputy
+        WHERE fullName LIKE :query OR slug LIKE :query
+        """)
+    suspend fun search(query: String): List<DeputyEntity>
 }

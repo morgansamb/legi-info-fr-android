@@ -23,7 +23,7 @@ class DeputyDetailViewModel(
         _state.value = when(result) {
             is Result.Success -> DeputyDetailState.Success(result.data)
             is Result.Error -> {
-                Logger.e(result.exception.message.orEmpty())
+                Logger.e(result.exception.stackTraceToString())
                 DeputyDetailState.Error()
             }
             Result.Loading -> throw IllegalStateException()

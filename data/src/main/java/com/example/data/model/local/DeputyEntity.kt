@@ -1,6 +1,7 @@
 package com.example.data.model.local
 
 import androidx.room.Entity
+import androidx.room.Fts4
 import java.io.Serializable
 
 @Entity(

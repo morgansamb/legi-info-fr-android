@@ -48,7 +48,7 @@ class DeputyDetailFragment : Fragment(R.layout.fragment_deputy_detail) {
                     binding.progressBar.gone()
                     setupTabLayout(state.deputy)
                 }
-                is DeputyDetailState.Error -> TODO()
+                is DeputyDetailState.Error -> { }
                 DeputyDetailState.Loading -> binding.progressBar.visible()
             }
         })

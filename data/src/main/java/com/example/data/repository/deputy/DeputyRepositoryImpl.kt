@@ -21,10 +21,10 @@ class DeputyRepositoryImpl(
     }
 
     override suspend fun getDeputy(slug: String): DeputyDetailEntity {
-        val deputyEntity = remoteSource.getDeputy(slug).toEntity()
-        localSource.insertDeputy(deputyEntity)
+        val deputyEntity = remoteSource.getDeputy(slug)
+        localSource.insertDeputy(deputyEntity.toEntity())
 
-        return localSource.getDeputy(deputyEntity.id)
+        return localSource.getDeputy(deputyEntity.content.id)
     }
 
     override suspend fun getSynthesisByDeputy(id: Int, force: Boolean): DeputySynthesisEntity {
@@ -35,4 +35,7 @@ class DeputyRepositoryImpl(
 
         return localSource.getSynthesisByDeputy(id)
     }
+
+    override suspend fun searchAllDeputies(query: String) =
+        localSource.search(query)
 }

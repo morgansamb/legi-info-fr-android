@@ -8,7 +8,7 @@ data class Deputy(
     val slug: String,
     val name: String,
     val birthDate: String,
-    val job: String,
+    val job: String? = null,
     val gender: String,
     val districtName: String,
     val districtNum: Int,

@@ -19,7 +19,7 @@ data class DeputyFullContent(
     @field:Json(name = "mandat_debut") val mandateBeg: String,
     @field:Json(name = "nb_mandats") val mandatesNumber: Int,
     @field:Json(name = "groupe") val group: DeputyOrganization,
-    @field:Json(name = "profession") val job: String,
+    @field:Json(name = "profession") val job: String? = null,
     @field:Json(name = "autres_mandats") val otherMandates: List<DeputyMandate>,
 )
 
