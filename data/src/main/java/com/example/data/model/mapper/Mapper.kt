@@ -1,13 +1,9 @@
 package com.example.data.model.mapper
 
-import com.example.data.model.local.DeputyDetailEntity
-import com.example.data.model.local.DeputyEntity
-import com.example.data.model.local.DeputySynthesisEntity
-import com.example.data.model.local.OrganizationEntity
-import com.example.data.model.remote.Deputy
-import com.example.data.model.remote.DeputyFull
-import com.example.data.model.remote.DeputySynthesis
-import com.example.data.model.remote.Organization
+import com.example.data.model.local.*
+import com.example.data.model.local.Document
+import com.example.data.model.local.Session
+import com.example.data.model.remote.*
 
 fun Deputy.toEntity(): DeputyEntity = DeputyEntity(
         id = this.content.id,
@@ -61,4 +57,29 @@ fun Organization.toEntity() = OrganizationEntity(
         actualGroup = this.content.actualGroup,
         name = this.content.name,
         order = this.content.order,
+)
+
+fun File.toEntity() = FileEntity(
+        id = this.content.id,
+        idFile = this.content.idFile,
+        title = this.content.title,
+        minDate = this.content.minDate,
+        maxDate = this.content.maxDate,
+        nbInterventions = this.content.nbInterventions,
+        sessions = this.content.sessions?.map { s -> Session(
+                id = s.content.id,
+                type = s.content.type,
+                date = s.content.date,
+                hour = s.content.hour,
+                session = s.content.session,
+                organism = s.content.organism
+        ) },
+        documents = this.content.documents?.map { d -> Document(
+                id = d.content.id,
+                number = d.content.number,
+                type = d.content.type,
+                title = d.content.title,
+                date = d.content.date,
+                signatories = d.content.signatories,
+        ) }
 )

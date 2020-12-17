@@ -13,11 +13,14 @@ class DeputyRepositoryImpl(
 ): DeputyRepository {
 
     override suspend fun getDeputies(): List<DeputyEntity> {
-        val deputies = remoteSource.getCurrentDeputies()
-        val entities = deputies.map { it.toEntity() }
-        localSource.insertDeputies(entities)
+        val localDeputies = localSource.getCurrentDeputies()
 
-        return localSource.getCurrentDeputies()
+        return if (localDeputies.isNullOrEmpty()) {
+            val deputies = remoteSource.getCurrentDeputies()
+            val entities = deputies.map { it.toEntity() }
+            localSource.insertDeputies(entities)
+            localSource.getCurrentDeputies()
+        } else localDeputies
     }
 
     override suspend fun getDeputy(slug: String): DeputyDetailEntity {

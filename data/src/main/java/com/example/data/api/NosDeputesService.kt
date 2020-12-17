@@ -1,6 +1,7 @@
 package com.example.data.api
 
 import com.example.data.model.remote.DeputyFull
+import com.example.data.model.remote.File
 import com.example.data.model.remote.response.DeputyResponse
 import com.example.data.model.remote.response.DeputySynthesisResponse
 import com.example.data.model.remote.response.FileResponse
@@ -23,6 +24,11 @@ interface NosDeputesService {
 
     @GET("15/dossiers/date/json")
     suspend fun getMostRecentFiles(): FileResponse
+
+    @GET("15/dossier/{id}/json")
+    suspend fun getFileById(
+        @Path("id") id: Int
+    ): File
 
     @GET("synthese/data/json")
     suspend fun getDeputiesSynthesisAllTime(): DeputySynthesisResponse

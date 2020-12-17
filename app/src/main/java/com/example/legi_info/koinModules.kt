@@ -15,6 +15,8 @@ import com.example.data.source.deputy.LocalDeputyDataSource
 import com.example.data.source.deputy.LocalDeputyDataSourceImpl
 import com.example.data.source.deputy.RemoteDeputyDataSource
 import com.example.data.source.deputy.RemoteDeputyDataSourceImpl
+import com.example.data.source.file.LocalFileDataSource
+import com.example.data.source.file.LocalFileDataSourceImpl
 import com.example.data.source.file.RemoteFileDataSource
 import com.example.data.source.file.RemoteFileDataSourceImpl
 import com.example.data.source.organization.LocalOrganizationDataSource
@@ -62,6 +64,7 @@ val appModule = module {
     single { RemoteOrganizationDataSourceImpl(get()) as RemoteOrganizationDataSource }
     single { LocalOrganizationDataSourceImpl(get<AppDatabase>().organizationDao()) as LocalOrganizationDataSource }
     single { RemoteFileDataSourceImpl(get()) as RemoteFileDataSource }
+    single { LocalFileDataSourceImpl(get<AppDatabase>().fileDao()) as LocalFileDataSource }
 
     /**
      * Repositories
@@ -76,7 +79,7 @@ val appModule = module {
         get()
     ) as OrganizationRepository }
 
-    single { FileRepositoryImpl(get()) as FileRepository }
+    single { FileRepositoryImpl(get(), get()) as FileRepository }
 
     // Deputy ViewModel
     viewModel {

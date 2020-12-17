@@ -5,17 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.data.db.dao.DeputyDao
-import com.example.data.db.dao.DeputyDetailDao
-import com.example.data.db.dao.DeputySynthesisDao
-import com.example.data.db.dao.OrganizationDao
+import com.example.data.db.dao.*
 import com.example.data.model.local.*
 
 @Database(entities = [
     DeputyEntity::class,
     OrganizationEntity::class,
     DeputyDetailEntity::class,
-    DeputySynthesisEntity::class
+    DeputySynthesisEntity::class,
+    FileEntity::class
 ],
     version = 1,
     exportSchema = false
@@ -26,6 +24,7 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun deputyDetailDao(): DeputyDetailDao
     abstract fun deputySynthesisDao(): DeputySynthesisDao
     abstract fun organizationDao(): OrganizationDao
+    abstract fun fileDao(): FileDao
 
     companion object {
         private const val DATABASE_NAME = "legi-info-db"

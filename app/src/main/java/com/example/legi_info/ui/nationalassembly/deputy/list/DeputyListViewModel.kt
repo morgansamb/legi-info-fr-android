@@ -31,7 +31,7 @@ class DeputyListViewModel(
         _state.value = when (result) {
             is Result.Success -> ListState.Success(result.data)
             is Result.Error -> {
-                Logger.e(result.exception.message.orEmpty())
+                Logger.e(result.exception.stackTraceToString())
                 ListState.Error(result.exception.message)
             }
             Result.Loading -> throw IllegalStateException()

@@ -10,7 +10,7 @@ import java.io.Serializable
 )
 data class DeputyEntity(
     val id: Int,
-    val idAN: Int,
+    val idAN: Int?,
     val slug: String,
     val fullName: String,
     val gender: String,

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.remote.File
+import com.example.data.model.local.FileEntity
 import com.example.domain.result.Result
 import com.example.domain.usecase.file.GetMostRecentFileUseCase
 import com.example.legi_info.ui.base.ListState
@@ -16,8 +16,8 @@ class FileListViewModel(
     private val getMostRecentFileUseCase: GetMostRecentFileUseCase
 ): ViewModel() {
 
-    private val _state = MutableLiveData<ListState<File>>()
-    val state: LiveData<ListState<File>>
+    private val _state = MutableLiveData<ListState<FileEntity>>()
+    val state: LiveData<ListState<FileEntity>>
         get() = _state
 
     init {
@@ -30,7 +30,7 @@ class FileListViewModel(
         _state.value = when(result) {
             is Result.Success -> ListState.Success(result.data)
             is Result.Error -> {
-                Logger.e(result.exception.message.orEmpty())
+                Logger.e(result.exception.stackTraceToString())
                 ListState.Error()
             }
             Result.Loading -> throw IllegalStateException()

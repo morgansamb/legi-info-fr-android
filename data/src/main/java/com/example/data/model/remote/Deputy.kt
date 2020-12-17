@@ -9,7 +9,7 @@ data class Deputy(
 
 data class DeputyContent(
     @field:Json(name = "id") val id: Int,
-    @field:Json(name = "id_an") val idAN: Int,
+    @field:Json(name = "id_an") val idAN: Int?,
     @field:Json(name = "slug") val slug: String,
     @field:Json(name = "nom") val fullName: String,
     @field:Json(name = "sexe") val sex: String,

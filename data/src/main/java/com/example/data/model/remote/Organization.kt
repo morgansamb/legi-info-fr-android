@@ -14,3 +14,4 @@ data class OrganizationContent(
     @field:Json(name = "nom") val name: String,
     @field:Json(name = "order") val order: Int,
 )
+

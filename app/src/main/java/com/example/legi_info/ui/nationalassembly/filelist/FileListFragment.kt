@@ -6,6 +6,7 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
 import com.example.legi_info.R
 import com.example.legi_info.databinding.FragmentSearchRecyclerBinding
+import com.example.legi_info.extension.gone
 import com.example.legi_info.ui.base.ListState
 import com.orhanobut.logger.Logger
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -21,11 +22,21 @@ class FileListFragment : Fragment(R.layout.fragment_search_recycler) {
 
         fileListViewModel.state.observe(viewLifecycleOwner, { state ->
             when (state) {
-                is ListState.Success -> fileAdapter.addAll(state.data)
-                is ListState.Error -> Logger.e("error")
+                is ListState.Success -> {
+                    binding.progressBar.gone()
+                    fileAdapter.addAll(state.data)
+                }
+                is ListState.Error -> {
+                    binding.progressBar.gone()
+                    Logger.e("error")
+                }
                 ListState.Loading -> Logger.i("loading")
             }
         })
+
+        fileAdapter.setOnClickListener { file ->
+
+        }
     }
 
     companion object {
